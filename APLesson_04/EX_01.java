@@ -16,7 +16,7 @@ public class EX_01
 		keyboard.nextLine();
 		
 		//item2 inputs
-		System.out.println("Please eneter item 2:");
+		System.out.println("Please enter item 2:");
 		String two = keyboard.nextLine();
 		System.out.println("Please enter the price:");
 		double pricetwo = keyboard.nextDouble();
@@ -44,11 +44,12 @@ public class EX_01
 		form.format("Tax:" , Tax);
 		form.format("Total:" , Total);
 		
+		System.out.println("\n_______________________________________________");
 		System.out.println("\n* Thank you for your support *");
 	}
 	public void format(String item, double price)
 	{
-		System.out.printf("\n%20s  %10.2f", item, price);
+		System.out.printf("\n*%20s ........ %10.2f", item, price);
 	}
 	
 	
