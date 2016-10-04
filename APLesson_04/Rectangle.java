@@ -18,13 +18,13 @@ public class Rectangle
 		print();
 	}
 	
-	public static double calcPerim()
+	public static void calcPerim()
 	{
-		return perimeter = 2 * (l +w);
+		perimeter = 2 * (l +w);
 	}
 	
 	public static void print()
 	{
-		System.out.printf("Your rectangle is %-10.2f feet around.", perimeter);
+		System.out.printf("Your rectangle is "+ "%.2f"+ " feet around.", perimeter);
 	}
 }
