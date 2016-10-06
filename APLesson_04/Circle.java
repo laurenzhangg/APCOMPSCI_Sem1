@@ -15,9 +15,9 @@ public class Circle
 		print();
 	}
 	
-	public static double calcArea()
+	public static void calcArea()
 	{
-		return area1 = r * r * pi;
+		area1 = r * r * pi;
 	}
 	
 	public static void print()
