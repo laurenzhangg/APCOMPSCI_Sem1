@@ -24,6 +24,18 @@ public class yOrN
 			System.out.println("Please enter Y or N");
 			recursion();
 		}
-	
+		public static void checkNum()
+		{
+			System.out.println("Pick a number between 1 and 10");
+		int guess = kb.nextInt();
+		if(guess >= 1 && guess <= 10)
+		{
+			System.out.println("The number is right!");
+		}
+		else
+		{
+			System.out.println("Wrong!");
+		}
+		}
 	}
 }
