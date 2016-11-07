@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class EX_03
+{
+	static int rev = 0;
+	static int number;
+	
+	public static void main(String[]args)
+	{
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Please enter a number: ");
+		number = kb.nextInt();
+		getReversed();
+		System.out.println(number + " reversed is " + rev);
+	}
+	public static void getReversed()
+	{
+		int num = number;
+		while(num > 0)
+		{
+			rev *= 10;
+			rev += num % 10;
+			num /= 10;
+		}
+	}
+}
