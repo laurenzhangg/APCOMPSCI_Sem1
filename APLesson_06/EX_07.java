@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class EX_03
+public class EX_07
 {
 	public static void main(String[]args)
 	{
@@ -9,7 +9,7 @@ public class EX_03
 		
 		for(int i = word.length(); i > 0 ; i--)
 		{
-			System.out.println(word.substring(0, i));
+			System.out.println(word.substring(i));
 		}
 	}
 }
