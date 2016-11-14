@@ -15,7 +15,7 @@ public class EX_03
 		{
 			if(num%10 == 7 )
 			{
-				return 1+ luck(num/10);
+				return 1 + luck(num/10);
 			}
 			else
 			{
