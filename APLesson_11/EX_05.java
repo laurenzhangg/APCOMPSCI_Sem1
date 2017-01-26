@@ -16,7 +16,7 @@ public class EX_05
 		
 		while(bulletCount > 0 || shotCount > 0)
 		{
-			System.out.println("Action: ");
+			System.out.println("Action: (R or S) ");
 			String action = kb.next();
 			
 			if(action.equals("R"))
