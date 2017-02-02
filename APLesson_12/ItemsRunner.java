@@ -21,7 +21,7 @@ public class ItemsRunner
        if(dChoice.equals("y")){
            System.out.println("Please input category name");
            category = kb.next();  
-           System.out.println("Please input price name");
+           System.out.println("Please input price");
            price = kb.nextInt();        
            Items objItems1 = new Items(manufacturer, name, category, price);
            System.out.println(objItems1);
