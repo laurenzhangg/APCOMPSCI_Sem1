@@ -3,7 +3,7 @@ public class HumanRunner
 {
      public static void main(String[] args)
     {
-                
+       
        String dHair, dEyes, dSkin;
        Scanner kb = new Scanner(System.in); 
        System.out.println("Please input hair color");
@@ -15,7 +15,7 @@ public class HumanRunner
     
        Human objHuman1 = new Human(dHair,dEyes,dSkin);
       
-       System.out.println("*********** My info  ***********");
+       System.out.println("My info...");
        System.out.println("Hair: " + objHuman1.getHair());
        System.out.println("Eyes: " + objHuman1.getEyes());
        System.out.println("Skin: " + objHuman1.getSkin());
@@ -25,7 +25,7 @@ public class HumanRunner
        objHuman2.setEyes("blue");
        objHuman2.setSkin("white");
        
-       System.out.println("*********** My friend info  ***********");
+       System.out.println("Friend's info...");
        System.out.println("Hair: " + objHuman2.getHair());
        System.out.println("Eyes: " + objHuman2.getEyes());
        System.out.println("Skin: " + objHuman2.getSkin());
