@@ -17,7 +17,7 @@ public class GMC implements Location
 		x += x1;
 		y += y1;
 	}
-	public double[] getLoc)()
+	public double[] getLoc()
 	{
 		double[] location = new double[2];
 		location[0] = x;

@@ -1,12 +1,10 @@
-public class Toyota implements Location
+public class Honda implements Location
 {
 	private double[] location = new double[2];
 	
-	public Toyota (String rabbit)
+	public Honda(double[] place)
 	{
-		String[] bunny = rabbit.split(", "); 
-		location[0] = Double.parseDouble(bunny[0]);
-		location[1] = Double.parseDouble(bunny[1]);
+		location = place;
 	}
 	public int getID()
 	{
@@ -21,4 +19,5 @@ public class Toyota implements Location
 	{
 		return location;
 	}
+	
 }
