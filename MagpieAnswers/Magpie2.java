@@ -14,10 +14,7 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if(statement.length() == 0)
-		{
-			response = "Say something please.";
-		}
+
 		/** Exercise_01:
 		 * ==================================================
 		 * 	Code that asks the user "Say something, please."
@@ -25,47 +22,22 @@ public class Magpie2
 		 * 	enter. Think to yourself: "What is the length of
 		 * 	an empty String?" */
 
+
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		else if (findKeyword(statement, "no") >= 0)
+		if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
 		}
 
-		else if (findKeyword(statement,"mother") >= 0
-				|| findKeyword(statement,"father") >= 0
-				|| findKeyword(statement,"sister") >= 0
-				|| findKeyword(statement,"brother") >= 0)
+		else if (statement.indexOf("mother") >= 0
+				|| statement.indexOf("father") >= 0
+				|| statement.indexOf("sister") >= 0
+				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
-		
-		// Responses which require transformations
-		else if (findKeyword(statement, "I want to", 0) >= 0)
-		{
-		response = transformIWantToStatement(statement);
-		}
-
-
-		else
-		{
-			// Look for a two word (you <something> me)
-			// pattern
-			int psn = findKeyword(statement, "you", 0);
-
-
-			if (psn >= 0
-				&& findKeyword(statement, "me", psn) >= 0)
-			{
-				response = transformYouMeStatement(statement);
-			}
-			else
-			{
-			response = getRandomResponse();
-			}
-		}
-		return response;
 
 		/** Exercise_03(Final)
 		 * ==================================================
@@ -77,40 +49,12 @@ public class Magpie2
 		 * Create addtional code (another else if) that
 		 * responds "He sounds like a pretty dank teacher"
 		 * if you mention "Robinette" in your statement */
-		
-		else if (findKeyword(statement,"cat") >= 0
-				|| findKeyword(statement,"dog") >= 0
-				|| findKeyword(statement,"fish") >= 0
-				|| findKeyword(statement,"turtle") >= 0)
-		{
-			response = "Tell me more about your pet.";
-		}
-		
-		else if (findKeyword(statement, "Robinette") >= 0)
-		{
-			response = "He sounds like a pretty dank teacher";
-		}
-		
+
 		else
 		{
 			response = getRandomResponse();
 		}
-		
 		return response;
-	}
-	
-	private String transformIWantToStatement(String statement)
-	{
-		statement = statement.trim
-		String lastChar = statement.substring(statement
-				.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement
-					.length() - 1);
-		}
-		int psn = findKeyword(statement, "I want to", 0);
-		
 	}
 
 	/** Ex_02: The findKeyword() Method...
@@ -133,36 +77,11 @@ public class Magpie2
 					set before = the slot in phrase before psn */
 
 				//====>code here
-				
-		String phrase = statement.trim().toLowerCase();
-		goal = goal.trim().toLowerCase();
-		
-		int psn = phrase.indexOf(goal, startPos);
-		while(psn >= 0)
-		{
-			String before = "";
-			String after = "";
-			if(psn > 0) 
-			{
-				before = phrase.substring(psn -1, psn);
-			}
-			if(psn + goal.length() < phrase.length())
-			{
-				after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
-			}
-			if((before.compareTo("a") < 0 || before.compareTo("z") > 0) && 
-				(after.compareTo("a") < 0 || before.compareTo("z") > 0))
-			{
-				return psn;
-			}
-			psn = phrase.indexOf(goal, psn + 1);
-		}
-		
 
 				/*check if you can fit goal into the rest of phrase - no need to
 				proceed otherwise
 					set after = the slot in phrase after psn + length of goal */
-		
+
 				//=====> code here
 
 				/* if before and after are not letters (compare before to "a"
