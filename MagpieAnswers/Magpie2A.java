@@ -1,10 +1,11 @@
-public class Magpie2
+public class Magpie2A
 {
 	/** Get a default greeting @return a greeting*/
 	public String getGreeting()
 	{
 		return "Hello, let's talk.";
 	}
+	
 	
 	/** getResponse() method
 	 * ===========================================
@@ -26,7 +27,11 @@ public class Magpie2
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		if (statement.indexOf("no") >= 0)
+		if(statement.length() == 0)
+		{
+			response = "Say something please.";
+		}
+		else if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
 		}
