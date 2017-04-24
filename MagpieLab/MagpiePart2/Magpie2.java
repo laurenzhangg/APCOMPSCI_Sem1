@@ -41,44 +41,7 @@ public class Magpie2
 			response = "Tell me more about your family.";
 		}
 		
-		// Responses which require transformations
-		else if (findKeyword(statement, "I want to", 0) >= 0)
-		{
-		response = transformIWantToStatement(statement);
-		}
-
-
-		else
-		{
-			// Look for a two word (you <something> me)
-			// pattern
-			int psn = findKeyword(statement, "you", 0);
-
-
-			if (psn >= 0
-				&& findKeyword(statement, "me", psn) >= 0)
-			{
-				response = transformYouMeStatement(statement);
-			}
-			else
-			{
-			response = getRandomResponse();
-			}
-		}
-		return response;
-
-		/** Exercise_03(Final)
-		 * ==================================================
-		 * Create additional code (another else if) that
-		 * responds "Tell me more about your pet" if the
-		 * user mentions the word cat, dog, fish, or turtle
-		 * in their statement.
-		 *
-		 * Create addtional code (another else if) that
-		 * responds "He sounds like a pretty dank teacher"
-		 * if you mention "Robinette" in your statement */
-		
-		else if (findKeyword(statement,"cat") >= 0
+		else if(findKeyword(statement,"cat") >= 0
 				|| findKeyword(statement,"dog") >= 0
 				|| findKeyword(statement,"fish") >= 0
 				|| findKeyword(statement,"turtle") >= 0)
@@ -91,9 +54,35 @@ public class Magpie2
 			response = "He sounds like a pretty dank teacher";
 		}
 		
+		// Responses which require transformations
+		else if (findKeyword(statement, "I want to", 0) >= 0)
+		{
+		response = transformIWantToStatement(statement);
+		}
+		/** Exercise_03(Final)
+		 * ==================================================
+		 * Create additional code (another else if) that
+		 * responds "Tell me more about your pet" if the
+		 * user mentions the word cat, dog, fish, or turtle
+		 * in their statement.
+		 *
+		 * Create addtional code (another else if) that
+		 * responds "He sounds like a pretty dank teacher"
+		 * if you mention "Robinette" in your statement */
 		else
 		{
+			// Look for a two word (you <something> me)
+			// pattern
+			int psn = findKeyword(statement, "you", 0);
+			if (psn >= 0
+				&& findKeyword(statement, "me", psn) >= 0)
+			{
+				response = transformYouMeStatement(statement);
+			}
+			else
+			{
 			response = getRandomResponse();
+			}
 		}
 		
 		return response;
@@ -101,17 +90,29 @@ public class Magpie2
 	
 	private String transformIWantToStatement(String statement)
 	{
-		statement = statement.trim
-		String lastChar = statement.substring(statement
-				.length() - 1);
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() -1 , statement.length());
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+			statement = statement.substring(statement.length(), statement.length() - 1);
 		}
-		int psn = findKeyword(statement, "I want to", 0);
+		int psn = findKeyword(statement, "I want to" , 0);
+		String restOfStatement = statement.substring(psn+9);
 		
-		
+		return "What would it mean to " + restOfStatement + "?";
+	}
+	
+	private String transformYouMeStatement(String statement)
+	{
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() -1 , statement.length());
+		if (lastChar.equals("."))
+			statement = statement.substring(statement.length(), statement.length() - 1);
+
+		int psnOfYou = findKeyword(statement, "you" , 0);
+		int psnOfMe = findKeyword (statement, "me", psnOfYou + 3);
+		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
+		return "What makes you think that I " + restOfStatement + " you?";
 	}
 
 	/** Ex_02: The findKeyword() Method...
