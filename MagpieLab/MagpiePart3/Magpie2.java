@@ -101,7 +101,7 @@ public class Magpie2
 		
 		return "What would it mean to " + restOfStatement + "?";
 	}
-	
+
 	private String transformYouMeStatement(String statement)
 	{
 		statement = statement.trim();
