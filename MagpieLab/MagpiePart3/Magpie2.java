@@ -99,7 +99,7 @@ public class Magpie2
 		String lastChar = statement.substring(statement.length() -1 , statement.length());
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(statement.length(), statement.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 		}
 		int psn = findKeyword(statement, "I want to" , 0);
 		String restOfStatement = statement.substring(psn+9);
@@ -112,7 +112,7 @@ public class Magpie2
 		statement = statement.trim();
 		String lastChar = statement.substring(statement.length() -1 , statement.length());
 		if (lastChar.equals("."))
-			statement = statement.substring(statement.length(), statement.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 
 		int psnOfYou = findKeyword(statement, "you" , 0);
 		int psnOfMe = findKeyword (statement, "me", psnOfYou + 3);
@@ -125,8 +125,7 @@ public class Magpie2
 		statement = statement.trim();
 		String lastChar = statement.substring(statement.length() -1 , statement.length());
 		if (lastChar.equals("."))
-			statement = statement.substring(statement.length(), statement.length() - 1);
-
+			statement = statement.substring(0, statement.length() - 1);
 		int psnOfI = findKeyword(statement, "I" , 0);
 		int psnOfYou = findKeyword (statement, "you", psnOfI + 3);
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou);
