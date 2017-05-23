@@ -93,3 +93,15 @@ public class Shuffler {
 	   }
 	}
 }
+
+
+
+
+//NOTES
+//public static string flip()
+{
+	if(Math.random() < .33)
+		return "tails";
+	else
+		return "head";
+}
